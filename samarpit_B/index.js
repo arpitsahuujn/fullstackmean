@@ -17,6 +17,11 @@ const app = express();   // use executed express
 app.use(express.json()); // it is necessary to use req.body
 app.use(cors()); // to resolve cors error
 
+app.get("/", (req, res) => {
+  res.send("Hello from Express on Vercel!");
+});
+
+
 // register by client api -> add client to auth and client collection
 app.post("/register", async (req,res) =>{
     let auth = new Auth(req.body);
