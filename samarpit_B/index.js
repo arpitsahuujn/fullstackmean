@@ -44,8 +44,6 @@ app.post("/register", async (req,res) =>{
 
 // login  -> check client and admin both in auth collection
 app.post("/login", async (req, res) => {
-  console.log("MongoDB URI:", process.env.MONGODB_LOCATION + "...");
-
     if (req.body.usrnm && req.body.pass) {
         let auth = await Auth.findOne(req.body).select("-pass");
         if (auth) {
