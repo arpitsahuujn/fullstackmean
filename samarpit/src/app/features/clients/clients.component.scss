@@ -1,0 +1,36 @@
+.client-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.client-card {
+  width: 100%;
+}
+
+.client-avatar {
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  text-align: center;
+  align-content: end;
+}
+
+.stickybar{
+  position: sticky;
+  top: 60px;
+  z-index: 1000;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-card-footer {
+  padding: 16px;
+}
+
+.imgCls{
+  height: 150px;
+}

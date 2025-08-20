@@ -1,0 +1,30 @@
+<div class="d-flex px-3 justify-content-end stickybar">
+  <span (click)="openAddUserDialog()" class="fa fa-plus-square-o fa-2x ccursor-pointer"></span>
+</div>
+
+<div class="user-card-grid">
+  @for (user of users; track user; let i = $index) {
+  <mat-card class="user-card">
+    <mat-card-header>
+      <!-- <span mat-card-avatar class="fa fa-user fa-2x user-avatar"></span> -->
+      <span mat-card-avatar>
+        <img class="user-avatar" [src]="'https://picsum.photos/50/50?random=' + i">
+      </span>
+
+      <mat-card-title>{{ user.name }}</mat-card-title>
+      <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Role: {{ user.role }}</p>
+      <p>Location: {{ user.location }}</p>
+    </mat-card-content>
+    <mat-card-footer class="example-card-footer">
+      <mat-chip-set aria-label="Chihuahua traits">
+        <mat-chip (click)="goToOverview('154')">overview</mat-chip>
+        <mat-chip (click)="openEditUserDialog(user)">edit</mat-chip>
+        <mat-chip (click)="deleteUser(user.usrId)">delete</mat-chip>
+      </mat-chip-set>
+    </mat-card-footer>
+  </mat-card>
+  }
+</div>

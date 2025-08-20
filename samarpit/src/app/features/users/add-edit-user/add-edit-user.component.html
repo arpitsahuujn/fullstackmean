@@ -1,0 +1,61 @@
+<h2 mat-dialog-title>Add User</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="userForm" class="user-form mat-typography">
+    <div class="form-grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="usrnm" />
+        @if(userForm.get('usrnm')?.hasError('required')){
+        <mat-error>Required</mat-error>
+        }
+
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+        @if(userForm.get('name')?.hasError('required')){
+        <mat-error>Required</mat-error>
+        }
+
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="pass" />
+        @if(userForm.get('pass')?.hasError('required')){
+        <mat-error>Required</mat-error>
+        }
+
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" formControlName="cpass" />
+        @if(userForm.hasError('notMatching')){
+        <mat-error>Passwords do not match</mat-error>
+        }
+
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+        @if(userForm.get('email')?.hasError('email')){
+        <mat-error>Invalid email</mat-error>
+        }
+
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="location" />
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-flat-button color="primary" (click)="onSubmit()">Submit</button>
+  <button mat-button type="button" (click)="onCancel()">Cancel</button>
+</mat-dialog-actions>

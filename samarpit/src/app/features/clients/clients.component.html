@@ -1,0 +1,36 @@
+<div class="d-flex px-3 justify-content-end stickybar">
+  <span (click)="openAddClientDialog()" class="fa fa-plus-square-o fa-2x ccursor-pointer"></span>
+</div>
+
+<div class="client-card-grid">
+    @for (client of clients; track client; let i = $index) {
+    <mat-card class="client-card">
+      @if(client.image1Url){
+        <img mat-card-image class="imgCls" [src]="client.image1Url"> 
+      }
+      @else{
+        <img mat-card-image class="imgCls" [src]="'https://picsum.photos/300/200?random=' + i">
+      }
+      <mat-card-header>
+          <!-- <span mat-card-avatar class="fa fa-user fa-2x client-avatar"></span> -->
+          <span mat-card-avatar>
+            <img class="client-avatar" [src]="'https://picsum.photos/50/50?random=' + i">
+          </span>
+        <mat-card-title>{{ client.name }}</mat-card-title>
+        <mat-card-subtitle>{{ client.email }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Role: {{ client.role }}</p>
+        <p>Location: {{ client.location }}</p>
+      </mat-card-content>
+      <mat-card-footer class="example-card-footer">
+        <mat-chip-set aria-label="Chihuahua traits">
+          <mat-chip (click)="goToOverview(client.cltId)">overview</mat-chip>
+          <mat-chip (click)="openEditClientDialog(client)">edit</mat-chip>
+          <mat-chip (click)="deleteClient(client.cltId)">delete</mat-chip>
+        </mat-chip-set>
+      </mat-card-footer>
+    </mat-card>
+  }
+
+</div>

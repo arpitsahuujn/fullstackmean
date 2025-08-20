@@ -1,0 +1,78 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" [mode]="(deviceType$ | async) === 'mobile' ? 'over' : 'side'"
+    [opened]="(deviceType$ | async) !== 'mobile'">
+    <!-- ICON / LOGO SECTION -->
+    <div class="sidenav-header text-center py-3 sticky-logo">
+      <span class="fa fa-amazon fa-4x"></span>
+    </div>
+    <!--  MENU -->
+    <mat-nav-list>
+
+      <div class="my-2 py-4 ccursor-pointer" mat-list-item routerLink="/dashboard" routerLinkActive="myactive"
+        [routerLinkActiveOptions]="{exact:true}" (click)="onNavClick(drawer)">
+        <div class="text-center"><span class="fa fa-id-card fa-lg"></span></div>
+        <div class="text-center"> <span>dashboard</span></div>
+      </div>
+
+      @if(loggedInUser().role == '2'){
+      <div class="my-2 py-4 ccursor-pointer" mat-list-item routerLink="/users" routerLinkActive="myactive"
+        (click)="onNavClick(drawer)">
+        <div class="text-center"><span class="fa fa-users fa-lg"></span></div>
+        <div class="text-center"> <span>users</span></div>
+      </div>
+
+      <div class="my-2 py-4 ccursor-pointer" mat-list-item routerLink="/clients" routerLinkActive="myactive"
+        (click)="onNavClick(drawer)">
+        <div class="text-center"><span class="fa fa-user-o fa-lg"></span></div>
+        <div class="text-center"> <span>clients</span></div>
+      </div>
+      }
+
+      @if(loggedInUser().role == '3'){
+      <div class="my-2 py-4 ccursor-pointer" mat-list-item routerLink="/cltprofile" routerLinkActive="myactive"
+        (click)="onNavClick(drawer)">
+        <div class="text-center"><span class="fa fa-users fa-lg"></span></div>
+        <div class="text-center"> <span>Profile</span></div>
+      </div>
+      }
+
+
+      <div class="my-2 py-4 ccursor-pointer" mat-list-item routerLink="/aboutus" routerLinkActive="myactive"
+        (click)="onNavClick(drawer)">
+        <div class="text-center"><span class="fa fa-newspaper-o fa-lg"></span></div>
+        <div class="text-center"> <span>aboutus</span></div>
+      </div>
+
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+
+
+
+  <mat-sidenav-content class="toolbarwrap">
+
+    <mat-toolbar color="primary">
+      @if((deviceType$ | async) === 'mobile'){
+
+      <button mat-icon-button (click)="drawer.toggle()" aria-label="Toggle navigation">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      }
+      <span>Hi <span class="text-danger text-uppercase">{{loggedInUser().name}}</span> <span
+          class="fs-6">{{loggedInUser().role == '2' ? ' Admin' : ' Client'}}</span></span>
+      <span class="spacer"></span>
+
+      <span (click)="authService.logout()" class="fa fa-sign-out fa-lg ccursor-pointer"></span>
+
+    </mat-toolbar>
+
+    <div>
+      <router-outlet />
+    </div>
+
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>

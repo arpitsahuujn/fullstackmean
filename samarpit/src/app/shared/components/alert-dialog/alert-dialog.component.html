@@ -1,0 +1,42 @@
+<div class="alert-dialog">
+    @if(data.icon){
+    <div class="icon-wrapper">
+        @switch (data.icon) {
+        @case ('success') {
+        <span class="fa fa-check fa-4x"></span>
+        }
+        @case ('error') {
+        <span class="fa fa-minus fa-4x"></span>
+        }
+        @case ('info') {
+        <span class="fa fa-exclamation fa-4x"></span>
+        }
+        @case ('warning') {
+        <span class="fa fa-exclamation-circle fa-4x"></span>
+        }
+        @default {
+        <span class="fa fa-question fa-4x"></span>
+        }
+        }
+    </div>
+    }
+
+    @if(data.title){
+    <h2>{{ data.title }}</h2>
+    }
+
+    @if(data.message ){
+    <p>{{ data.message }}</p>
+    }
+
+    @if(data.yesBtn){
+    <button mat-raised-button color="primary" class="mx-2" (click)="dialogRef.close(true)">Yes</button>
+    }
+    @if(data.okBtn){
+    <button mat-raised-button color="primary" class="mx-2" (click)="dialogRef.close(true)">OK</button>
+    }
+    @if(data.noBtn){
+    <button mat-raised-button color="primary" class="mx-2" (click)="dialogRef.close(false)">NO</button>
+    }
+
+</div>

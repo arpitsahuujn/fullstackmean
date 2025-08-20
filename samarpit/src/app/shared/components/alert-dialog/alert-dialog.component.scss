@@ -1,0 +1,39 @@
+.alert-dialog {
+  text-align: center;
+  padding: 20px;
+
+  .icon-wrapper {
+    margin-bottom: 10px;
+
+    mat-icon {
+      font-size: 48px;
+      color: #4caf50; // default for 'success'
+    }
+
+    .success {
+      color: #4caf50;
+    }
+    .error {
+      color: #f44336;
+    }
+    .warning {
+      color: #ff9800;
+    }
+    .info {
+      color: #2196f3;
+    }
+  }
+
+  h2 {
+    margin: 10px 0;
+  }
+
+  p {
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  button {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,37 @@
+.user-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.user-card {
+  width: 100%;
+}
+
+.user-avatar {
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  text-align: center;
+  align-content: end;
+}
+
+.stickybar{
+  position: sticky;
+  top: 60px;
+  z-index: 1000;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-card-footer {
+  padding: 16px;
+}
+
+// ::ng-deep .custom-big-dialog.cdk-overlay-pane.mat-mdc-dialog-panel {
+//   max-width: 1400px;
+//   min-width: 280px;
+// }

@@ -1,0 +1,27 @@
+steps to create a backend
+
+1) create a folder samarpit_B .  B stands for backend
+2) create package.json file by using -> npm init
+3) install important package -> npm i package_name
+     like :    express , mongoose , nodemon , jsonwebtoken , cors
+
+     note : install  "express": "^4.18.2"  because newer has some problem with regex
+4) create index.js file and create basic api to check
+    ------------------------------------index.js---------------------------------------------
+                            const express = require('express');
+                            const app = express();
+
+                            app.get("/", (req,res) =>{
+                                res.send('app is working');
+                            })
+
+                            app.listen(5000, () => {
+                                console.log("app is running on 5000 port");
+                            });
+    -----------------------------------------------------------------------------------------
+
+5) go to mongodb compass and create required db and collections
+6) create folder db to store config.js and schema
+
+
+project run cmd - node ./index.js
