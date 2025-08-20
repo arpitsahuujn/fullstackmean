@@ -1,5 +1,5 @@
-export const API_ENDPOINT = 'http://localhost:5000';
-
+// export const API_ENDPOINT = 'http://localhost:5000';
+export const API_ENDPOINT = 'https://fullstackmean.vercel.app';
 
 export const register = API_ENDPOINT + '/register';
 export const login = API_ENDPOINT + '/login';
