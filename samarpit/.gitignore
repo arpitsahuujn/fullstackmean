@@ -29,7 +29,7 @@ coverage/
 *.lcov
 
 # Build output (Node + Angular)
-dist/
+
 out/
 build/
 
