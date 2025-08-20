@@ -372,7 +372,8 @@ function verifyToken(req, res, next) {
 }
 
 
-app.listen(process.env.PORT, () => {
-    console.log("app is running on 5000 port");
-});
+// app.listen(process.env.PORT, () => {
+//     console.log("app is running on 5000 port");
+// });
 
+module.exports = app;
